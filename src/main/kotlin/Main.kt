@@ -7,10 +7,10 @@ fun main() {
     var dim: Int?
     val sc= Scanner(System.`in`)
     while(true){
-        var dimStr:String?=sc.next()
+        val dimStr:String?=sc.next()
         try{
             dim=dimStr?.toInt()
-            if(dim!!>10 || dim!!<3){
+            if(dim!!>10 || dim<3){
                 throw Exception("Dimension is invalid.")
             }
             break
@@ -22,7 +22,7 @@ fun main() {
     }
 
     //init board
-    var f=Field(dimension=dim!!)
+    val f=Field(dimension=dim!!)
     //input mines
     f.inputMines()
     while(true){

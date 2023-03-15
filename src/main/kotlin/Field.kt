@@ -131,10 +131,14 @@ class Field(var dimension: Int=4){
             val mines:String?=sc.next()
             try{
                 minesInt=mines?.toInt()
-
+                if(minesInt!!>=dimension*dimension || minesInt!! <=0){
+                    throw Exception("No of mines is invalid.")
+                }
                 break
             }catch (e: NumberFormatException){
                 println("The number of mines should be an integer.")
+            }catch (e: Exception){
+                println("The number of mines should be less than dim*dim and more than 0.")
             }
         }
         println(minesInt)
