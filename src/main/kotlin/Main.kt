@@ -15,7 +15,7 @@ fun main() {
             }
             break
         }catch (e: NumberFormatException){
-            println("Dimension should be should be an integer.")
+            println("Dimension should be an integer.")
         }catch (e:Exception){
             println(e.localizedMessage)
         }

@@ -63,7 +63,11 @@ class Field(var dimension: Int=4){
                 if(board[i][j].type==-1){
                     print("* ")
                 }else {
-                    print(board[i][j].type.toString() + " ")
+                    if(board[i][j].type==0){
+                        print("  ")
+                    }else {
+                        print(board[i][j].type.toString() + " ")
+                    }
                 }
             }
             println()
@@ -95,7 +99,11 @@ class Field(var dimension: Int=4){
                     print("| ")
                 }
                 else if(board[i-2][j-2].opened){
-                    print(board[i-2][j-2].type.toString()+" ")
+                    if(board[i-2][j-2].type==0){
+                        print("  ")
+                    }else {
+                        print(board[i - 2][j - 2].type.toString() + " ")
+                    }
                 }else{
                     print("_ ")
                 }
@@ -107,12 +115,7 @@ class Field(var dimension: Int=4){
     fun isEnd():Boolean{
         for(i in 0 until dimension){
             for (j in 0 until dimension){
-                if(board[i][j].type==-1) {
-                    if (board[i][j].opened) {
-                        //some mine is open--> should never happen bcs I have throw
-                        return false
-                    }
-                }else{
+                if(board[i][j].type!=-1) {
                     if (!board[i][j].opened) {
                         //some free cell is closed
                         return false
